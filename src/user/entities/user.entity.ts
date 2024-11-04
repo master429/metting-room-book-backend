@@ -77,5 +77,5 @@ export class User {
   @JoinTable({
     name: 'user_roles',
   })
-  role: Role[];
+  roles: Role[];
 }
