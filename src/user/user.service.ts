@@ -5,7 +5,7 @@ import {
   Injectable,
   Logger,
 } from '@nestjs/common';
-import { Repository } from 'typeorm';
+import { Like, Repository } from 'typeorm';
 import { User } from './entities/user.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { RegisterUserDto } from './dto/register-user.dto';
@@ -249,5 +249,57 @@ export class UserService {
       this.logger.error(e, UserService);
       return '用户信息修改成功';
     }
+  }
+
+  async freezeUserById(id: number) {
+    const user = await this.userRepository.findOneBy({ id });
+
+    user.isFrozen = true;
+
+    await this.userRepository.save(user);
+  }
+
+  async findUsers(
+    username: string,
+    nickName: string,
+    email: string,
+    pageNo: number,
+    pageSize: number,
+  ) {
+    const skipCount = (pageNo - 1) * pageSize;
+
+    const condition: Record<string, any> = {};
+
+    if (username) {
+      condition.username = Like(`%${username}%`);
+    }
+
+    if (nickName) {
+      condition.nickName = Like(`%${nickName}%`);
+    }
+    if (email) {
+      condition.email = Like(`%${email}%`);
+    }
+
+    const [users, totalCount] = await this.userRepository.findAndCount({
+      select: [
+        'id',
+        'username',
+        'nickName',
+        'email',
+        'phoneNumber',
+        'isFrozen',
+        'headPic',
+        'createTime',
+      ],
+      skip: skipCount,
+      take: pageSize,
+      where: condition,
+    });
+
+    return {
+      users,
+      totalCount,
+    };
   }
 }
