@@ -42,7 +42,7 @@ export class LoginUserVo {
   userInfo: UserInfo;
 
   @ApiProperty()
-  assessToken: string;
+  accessToken: string;
 
   @ApiProperty()
   refreshToken: string;

@@ -140,7 +140,7 @@ export class UserController {
   async userLogin(@Body() loginUser: LoginUserDto) {
     const vo = await this.userService.login(loginUser, false);
 
-    vo.assessToken = this.jwtService.sign(
+    vo.accessToken = this.jwtService.sign(
       {
         userId: vo.userInfo.id,
         username: vo.userInfo.username,
@@ -182,7 +182,7 @@ export class UserController {
   async adminLogin(@Body() loginUser: LoginUserDto) {
     const vo = await this.userService.login(loginUser, true);
 
-    vo.assessToken = this.jwtService.sign(
+    vo.accessToken = this.jwtService.sign(
       {
         userId: vo.userInfo.id,
         username: vo.userInfo.username,
