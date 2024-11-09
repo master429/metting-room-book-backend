@@ -13,17 +13,16 @@ export class StatisticService {
   async userBookingCount(startTime: string, endTime: string) {
     const res = await this.entityManager
       .createQueryBuilder(Booking, 'b')
-      .select('u.id', '用户id')
-      .addSelect('u.username', '用户名')
-      .leftJoin(User, 'u', 'b.userId=u.id')
-      .addSelect('count(1)', '预定次数')
+      .select('u.id', 'userId')
+      .addSelect('u.username', 'username')
+      .leftJoin(User, 'u', 'b.userId = u.id')
+      .addSelect('count(1)', 'bookingCount')
       .where('b.startTime between :time1 and :time2', {
         time1: startTime,
         time2: endTime,
       })
       .addGroupBy('b.user')
       .getRawMany();
-
     return res;
   }
 
