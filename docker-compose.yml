@@ -19,7 +19,7 @@ services:
       MYSQL_DATABASE: meeting_room_booking_system
       MYSQL_ROOT_PASSWORD: po
     ports:
-      - '3306:3306'
+      - 3306:3306
     networks:
       - common-network
   redis-container:
@@ -27,7 +27,7 @@ services:
     volumes:
       - /Users/liuqingpo/redis:/data
     ports:
-      - '6379:6379'
+      - 6379:6379
     networks:
       - common-network
 networks:
