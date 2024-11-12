@@ -38,8 +38,12 @@ import * as path from 'path';
     }),
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: path.join(__dirname, '.env'),
+      envFilePath: [
+        path.join(__dirname, '.env'),
+        path.join(__dirname, '.env.dev'),
+      ],
     }),
+
     TypeOrmModule.forRootAsync({
       useFactory(configService: ConfigService) {
         return {

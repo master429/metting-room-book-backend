@@ -15,19 +15,22 @@ services:
     depends_on:
       - mysql-container
       - redis-container
-    # ports:
-    #   - 3005:3005
+    ports:
+      - 3005:3005
+    restart: always
     networks:
       - common-network
   mysql-container:
     image: mysql
     volumes:
       - /Users/liuqingpo/mysql:/var/lib/mysql
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci # 设置默认字符集
     environment:
       MYSQL_DATABASE: meeting_room_booking_system
       MYSQL_ROOT_PASSWORD: po
     ports:
       - 3306:3306
+    restart: always
     networks:
       - common-network
   redis-container:
@@ -36,6 +39,20 @@ services:
       - /Users/liuqingpo/redis:/data
     ports:
       - 6379:6379
+    restart: always
+    networks:
+      - common-network
+  minio-container:
+    image: bitnami/minio:latest
+    ports:
+      - 9000:9000
+      - 9001:9001
+    restart: always
+    volumes:
+      - /Users/liuqingpo/minio:/bitnami/minio/data
+    environment:
+      MINIO_ROOT_USER: guang
+      MINIO_ROOT_PASSWORD: dongdong
     networks:
       - common-network
 networks:
