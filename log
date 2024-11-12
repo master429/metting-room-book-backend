@@ -1,0 +1,51 @@
+{"context":"InvokeRecordInterceptor","level":"debug","message":"GET /meeting-room/list ::1 Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36: MeetingRoomController invoked..."}
+{"context":"InvokeRecordInterceptor","level":"debug","message":"user:undefined,undefined"}
+{"level":"info","parameters":[],"sql":"SELECT `MeetingRoom`.`id` AS `MeetingRoom_id`, `MeetingRoom`.`name` AS `MeetingRoom_name`, `MeetingRoom`.`capacity` AS `MeetingRoom_capacity`, `MeetingRoom`.`location` AS `MeetingRoom_location`, `MeetingRoom`.`equipment` AS `MeetingRoom_equipment`, `MeetingRoom`.`description` AS `MeetingRoom_description`, `MeetingRoom`.`isBooked` AS `MeetingRoom_isBooked`, `MeetingRoom`.`createTime` AS `MeetingRoom_createTime`, `MeetingRoom`.`updateTime` AS `MeetingRoom_updateTime` FROM `meeting_room` `MeetingRoom` LIMIT 10"}
+{"level":"info","parameters":[],"sql":"SELECT COUNT(1) AS `cnt` FROM `meeting_room` `MeetingRoom`"}
+{"context":"InvokeRecordInterceptor","level":"debug","message":"GET /meeting-room/list ::1 Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36: 200: 50ms"}
+{"context":"InvokeRecordInterceptor","level":"debug","message":"Response: {\"meetingRooms\":[{\"id\":1,\"name\":\"木星2\",\"capacity\":10,\"location\":\"一层西\",\"equipment\":\"白板\",\"description\":\"ccc\",\"isBooked\":false,\"createTime\":\"2024-11-06T18:22:09.265Z\",\"updateTime\":\"2024-11-06T18:22:09.265Z\"},{\"id\":5,\"name\":\"大王星33\",\"capacity\":10,\"location\":\"三层西\",\"equipment\":\"白板，电视\",\"description\":\"大王星会议室\",\"isBooked\":true,\"createTime\":\"2024-11-06T18:42:09.371Z\",\"updateTime\":\"2024-11-07T17:52:28.579Z\"},{\"id\":7,\"name\":\"红楼梦\",\"capacity\":10,\"location\":\"3层\",\"equipment\":\"白板\",\"description\":\"xxx\",\"isBooked\":true,\"createTime\":\"2024-11-07T05:34:17.238Z\",\"updateTime\":\"2024-11-07T17:52:28.580Z\"},{\"id\":8,\"name\":\"红楼梦1\",\"capacity\":10,\"location\":\"3层\",\"equipment\":\"白板\",\"description\":\"xxx\",\"isBooked\":true,\"createTime\":\"2024-11-07T05:34:42.003Z\",\"updateTime\":\"2024-11-07T17:52:28.575Z\"}],\"totalCount\":4}"}
+{"level":"info","sql":"SELECT VERSION() AS `version`"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/aaa, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/bbb, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"UserController {/user}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/register-captcha, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/init-data, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/info, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/admin/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/refresh, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/admin/refresh, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/update_password, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/admin/update_password, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/update_password/captcha, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/update, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/admin/update, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/update/captcha, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/freeze, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/list, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/upload, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/google, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/callback/google, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"EmailController {/email}:"}
+{"context":"RoutesResolver","level":"info","message":"MeetingRoomController {/meeting-room}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/meeting-room/list, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/meeting-room/create, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/meeting-room/update, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/meeting-room/:id, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/meeting-room/:id, DELETE} route"}
+{"context":"RoutesResolver","level":"info","message":"BookingController {/booking}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/booking/list, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/booking/add, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/booking/apply/:id, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/booking/reject/:id, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/booking/unbind/:id, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/booking/urge/:id, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"StatisticController {/statistic}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/statistic/userBookingCount, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/statistic/meetingRoomUsedCount, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"MinioController {/minio}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/minio/presignedUrl, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
